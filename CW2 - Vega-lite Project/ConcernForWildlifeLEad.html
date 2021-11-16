@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Graph for Concern for Wildlife - Lead</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Graph for Concern for Wildlife - Lead</h1>
+     <div id="vis"></div>
+
+
+     <h1> Describe any particule concern for the pipit or other wildlife </h1>
+
+     <p> With reference to the concerns for wildlife, there is some data that shows some concern to the wellbeing of the wildlife in some of the locations. According to my research, there are many chemicals in the dataset that can pose a threat to the health of humans and wildlife alike. From my visualisations, I have discovered that some of these chemicals had increased through the years for some of the locations, specifically the later years. Furthermore, some of the data on the harmful chemicals have missing values which could affect analysis and predictions. Below, I will be discussing one of the two harmful chemicals: Lead.  </p>
+
+
+<h1> Lead </h1>
+
+<p> Above is a graph showing the value of Lead from the years 1998 to 2016 for Bursarakhan, Chai and Sakda. I chose these three locations specifically because they showed the highest amount of lead in comparison to the other locations. Furthermore, the three locations seemed to have shown similar patterns for lead. From the graphs, we can see that Busarakhan and Somchair have almost identical values. From 2003 to 2007, we can see that the value of Lead remained the same for both Bursarakhan and Somchair. However, we can see that there is a fluctuation in for Chai during this period. The values have increased and decreased during this period time. The one pattern that all three of these graphs share is that the value of lead begins to increase form the years 2013 to 2016, something that was quite similar to the previous finding. Chai shows a rapid increase from the year 2013 through 2016. The same can be said about Bursarakhan and Somchair where we can see an increase of the value from 2012 to 2016. This raises concern for wildlife because if the latest data shows us that there is an increase in the chemical, then there is a probability that the value of the chemical will continue to increase in the future. We can easily see this finding from the visualisation because the line seems to be going in an upwards direction from the years 2012 to 2016 which shows an increase in the value. Moreover, another reason why this is even more of a concern is because of how harmful lead can be to wildlife. Large amounts of Lead is known to threaten the wellbeing of wildlife. This finding would be considered insightful because many aspects were considered such as time, location and the measurement of the value. Features such as concatenation, faceting, selection and filtering were used to help me visualise and make the graphs a lot more interactive. </p>
+
+
+<h1> Concern for wildlife - visual effectiveness </h1>
+
+
+<p> In this section I will be discussing the visual mapping of my finding and why I chose them. I will be discussing the marks, channels and attributes.  </p>
+
+<p> As you can see in my visualisation for Lead, I used a line chart to help me discover if there were any concerns for wildlife in the present or future. As mentioned before, a line chart is used to display changes over time as a series of data points connected by a straight line. The chosen chart type for this the best fit for this finding because line charts were specifically designed to help users discover changes over time. This was very convenient for me because one of the attributes that were used for the visualisation was ‘sample date’ which gives information on the days, months and years. More than one mark was used in this visualisation and they are point (0D) and line (1D). The line was used to help the user track any changes over time and the point was used to help the user identify specific values on the graph. The visualisation falls under the identity channel because of the way I identified the chemical by using colour hues. Colour hues are considered to be one of the best channels for categorical data as stated by Munzner in “Visualisation analysis and design” (Munzner, 2014). It states, “The most effective channel for categorical data is spatial region, with colour hue as the next best one” (Munzner, 2014). Although it is the second best, I thought a set of colours would be best way to highlight the story that I want the data to tell. There is one additional feature that was applied when designing these graphs and that was tooltip. Tooltip allows the user to display the values by simply hovering their mouse over the graph. </p>
+
+
+
+
+<h1> References </h1>
+
+<p> ATSDR, (2012). Public Health Statement for Manganese. Available at: https://www.atsdr.cdc.gov/phs/phs.asp?id=100&tid=23. [Accessed 2 January 2020]. </p>
+<p> Boelee, (2019). Water and health: from environmental pressures to integrated responses. Available at: https://www.sciencedirect.com/science/article/pii/S0001706X18300883#:~:text=Pressures%20in%20the%20environment%20result,the%20State%20of%20human%20health.  [Accessed 4 January 2020].  </p>
+<p> EdrawMax, (2020). All you need to know about line graphs. Available at: https://www.edrawmax.com/line-graph/. [Accessed 3 January 2020]. </p>
+<p> Munzner, T., 2014. Visualization Analysis and Design. 1st ed. Boca Raton, FL: CRC Press.  </p>
+<p> SPSS, (2020). Missing data: the hidden problem. Available at: https://www.bauer.uh.edu/jhess/documents/2.pdf. [Accessed 2 January 2020].  </p>
+<p> The Wildlife Society, (2017). Impacts of Lead (Pb) on Wildlife. Available at: http://wildlife.org/wp-content/uploads/2014/05/Impacts-of-Lead-on-Wildlife.pdf. [Accessed 6 January 2020]. </p>
+<p> Vega-lite, (2020). Interactive Plots with Selections. Available at: https://vega.github.io/vega-lite/docs/selection.html. [Accessed 3 January 2020]. </p>
+
+
+     <script>
+        var vlSpec = {
+         
+          data: {url: "readings.csv"},
+
+        //  "Calcium",  "Mercury", "Ammonium", "Manganese", "Nickel", "Lead"
+
+       // "Chai", "Kohsoom", "Boonsri", "Tansanee", "Achara", "Decha", "Kohsoom", "Sakda", "Somchair", "Busarakhan"
+
+
+
+        "transform": [
+  {
+
+    "filter": {
+
+      "field": "measure",
+   // "oneOf": ["Calcium", "Mercury", "Ammonium", "Manganese", "Nickel", "Lead", "Arsenic"], 
+
+   "oneOf": [ "Lead"],
+
+    }
+  },
+  {
+   
+   "filter":{
+     
+   "field" : "location",
+ //  "oneOf": ["Chai", "Kohsoom", "Boonsri", "Tansanee", "Achara", "Decha", "Kohsoom", "Sakda", "Somchair", "Busarakhan"]
+  "oneOf": ["Busarakhan", "Chai", "Somchair"]     //change it back to the locations above once your done with documentation
+
+
+   }
+  }
+],
+
+
+width: 600,
+height: 400,
+
+
+"selection": {
+    "industry": {
+      "type": "single",
+      "fields": ["measure"], "bind": "legend",
+      "bind": {"input": "select", "options": [null, "Manganese", "Lead"]},
+      "hover": {"type": "single", "on": "mouseover", "empty": "none"},
+
+
+    }
+
+
+  },
+
+
+
+  "mark": {
+   "type": "line",
+  "point": true,
+  },
+ "columns": 4,
+  
+
+  "encoding": {
+
+
+    "facet": {"field": "location", "type": "nominal"},
+
+    "x": {
+      "field": "sample date",
+      "timeUnit": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"grid": true},
+
+
+    
+    },
+    "y": {
+      "field": "values",
+      "type": "quantitative",
+      "aggregate": "count",
+      "title": "Value",
+      "axis": {"grid": true},
+
+    },
+
+
+
+
+    "color": {
+      "condition": {
+        "selection": "industry",
+        "field": "measure", "type": "nominal",
+
+
+      },
+
+    
+
+      
+      "value": ""
+    },
+
+    "tooltip": [
+      {"field": "sample date", "type": "temporal", "timeUnit": "year"},
+      {"field": "location", "type": "nominal"},
+      {"field": "values", "type": "quantitative", "aggregate": "count"}
+    ]
+    
+  
+             },
+      
+    
+        
+        };
+
+
+
+
+
+
+     vegaEmbed('#vis', vlSpec);
+    </script>
+    </body>
+    </html>

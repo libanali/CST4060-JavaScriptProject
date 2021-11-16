@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Value of Chemicals by year and location</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Value of Chemicals by year and location</h1>
+     <div id="vis"></div>
+
+   
+     <script>
+        var vlSpec = {
+         
+          data: {url: "readings.csv"},
+
+          // Chai, Kannika, Boonsri, Kohsoom, Somchair and Sakda are the locations (location)
+
+
+
+
+
+"transform": [
+  {
+
+    "filter": {
+
+      "field": "measure",
+    "oneOf": ["Calcium", "Nitrites", "Atrazine", "Sulphates", "Chlorides", "Ammonium", "Manganese", "Nickel", "Lead"], 
+
+    }
+  },
+  {
+   
+   "filter":{
+     
+   "field" : "location",
+   "oneOf": ["Chai", "Kohsoom", "Boonsri", "Tansanee", "Achara", "Decha", "Kohsoom", "Sakda", "Somchair", "Busarakhan"]
+   }
+  }
+],
+              
+
+width: 600,
+height: 400,
+
+
+  "mark": "line",
+ "columns": 3,
+  
+  
+  "encoding": {
+
+
+    "facet": {"field": "measure", "type": "nominal"},
+
+    "x": {
+      "field": "sample date",
+      "timeUnit": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"grid": true}
+    },
+    "y": {
+      "field": "values",
+      "type": "quantitative",
+      "aggregate": "mean",
+      "title": "Value",
+      "axis": {"grid": true}
+    },
+    "color": {
+      "field": "location",
+      "type": "nominal",
+      //"legend": null
+    },
+
+
+    "tooltip": [
+      {"field": "sample date", "type": "ordinal", "timeUnit": "year"},
+      {"field": "location", "type": "nominal"},
+      {"field": "values", "type": "quantitative", "aggregate": "mean"}
+    ]
+
+    },
+
+
+  
+  
+
+  
+
+        
+        };
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+        vegaEmbed('#vis', vlSpec);
+    </script>
+    </body>
+    </html>
+

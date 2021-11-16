@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Graph for missing values</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Graph for missing values</h1>
+     <div id="vis"></div>
+
+     <h1> Describe any data quality and uncertain issues, such as missing data, change in collection frequency, and unrealistic values </h1>
+
+     <p> When navigating through the data I came across many problems with the nature of the dataset. I came across things such as missing data values and unrealistic data values for a variety of chemicals. I will be discussing both of these in detail. Unrealistic values will be discussed in another page. </p>
+
+
+     <h1> Uncertain issues - missing data </h1>
+
+
+      <p> Firstly, I would like to start off with the missing data values. When analysing different chemicals, I had found that there was missing data from three specific locations. As evident in the visualisations, we can see that there is an absence of data before 2009 for Tansanee, Achara and Decha in comparison to the other locations mentioned in previous visualisations. We can see this in the visualisation because there is an empty space from the year 1998 to 2009. Therefore, this shows that there was no data recorded at that period of time. Though the absence of data values is a common problem in datasets, it can still have an impact on the predictions and conclusions that are drawn from the dataset. “Missing Data: the hidden problem” (SPSS, 2020) mentions the dangers and the seriousness of missing data in datasets. It states, “Missing data can cause serious problems. First, most statistical procedures automatically eliminate cases with missing data. This means that in the end, you may not have enough data to perform the analysis” (SPSS, 2020). This is problematic when it comes to analysis because the absent data creates a hole in the story. Perhaps if there wasn’t any missing data in the years, we would be able to have a better understanding of many aspects and we would be able to discover if any of the chemicals had a correlation. This shows how important it is to make sure that all data values are filled in the dataset before analysing it so that the analysis can be more concrete and accurate. Similar to the other visualisations, a mixture of advanced features was used to help me visualise my findings. Features such as concatenation, faceting and filtering were used to help me visualise the data. </p>
+
+      
+
+      <h1> Uncertain issues - Effectiveness of the visualisation </h1>
+
+      <p> In this section I will be discussing the visual mapping of my findings and why I chose them. I will be discussing the marks, channels and attributes.  </p>
+
+      <p>  As you can see in my visualisations, I used a line chart to help me discover the uncertain issues. As mentioned before, a line chart is used to display changes over time as a series of data points connected by a straight line. The chosen chart type for this the best fit for this finding because line charts were specifically designed to help users discover changes over time. “All you need to know about line graphs” (EdrawMax, 2020) mentions why line graphs are useful. It states, “Line graphs are useful to better indicate the data changes over time in the form of easy to read interface” (EdrawMax, 2020). This was very convenient for me because one of the attributes that were used for the visualisation was ‘sample date’ which gives information on the days, months and years. More than one mark was used in this visualisation and they are point (0D) and line (1D). The line was used to help me see the increase and decrease in the values. The point mark was used to help the user identify specific values on the graphs. The visualisations fall under the identity channel because of the way I identified the different elements by using colour hues. Colour hues are considered to be one of the best channels for categorical data as stated by Munzner in “Visualisation analysis and design” (Munzner, 2014). It states, “The most effective channel for categorical data is spatial region, with colour hue as the next best one” (Munzner, 2014). Although it is the second best, I thought a set of colours would be best way to highlight the story that I want the data to tell. There is one additional feature that was applied when designing these graphs and that was tooltip. Tooltip allows the user to display the values by simply hovering their mouse over the graph. </p>
+
+
+
+      <h1> References </h1>
+
+      <p> ATSDR, (2012). Public Health Statement for Manganese. Available at: https://www.atsdr.cdc.gov/phs/phs.asp?id=100&tid=23. [Accessed 2 January 2020]. </p>
+      <p> Boelee, (2019). Water and health: from environmental pressures to integrated responses. Available at: https://www.sciencedirect.com/science/article/pii/S0001706X18300883#:~:text=Pressures%20in%20the%20environment%20result,the%20State%20of%20human%20health.  [Accessed 4 January 2020].  </p>
+      <p> EdrawMax, (2020). All you need to know about line graphs. Available at: https://www.edrawmax.com/line-graph/. [Accessed 3 January 2020]. </p>
+      <p> Munzner, T., 2014. Visualization Analysis and Design. 1st ed. Boca Raton, FL: CRC Press.  </p>
+      <p> SPSS, (2020). Missing data: the hidden problem. Available at: https://www.bauer.uh.edu/jhess/documents/2.pdf. [Accessed 2 January 2020].  </p>
+      <p> The Wildlife Society, (2017). Impacts of Lead (Pb) on Wildlife. Available at: http://wildlife.org/wp-content/uploads/2014/05/Impacts-of-Lead-on-Wildlife.pdf. [Accessed 6 January 2020]. </p>
+      <p> Vega-lite, (2020). Interactive Plots with Selections. Available at: https://vega.github.io/vega-lite/docs/selection.html. [Accessed 3 January 2020]. </p>
+      
+
+
+     <script>
+        var vlSpec = {
+         
+          data: {url: "readings.csv"},
+
+
+          "transform": [
+  {
+
+    "filter": {
+
+      "field": "measure",
+    "oneOf": ["Calcium", "Nitrites", "Atrazine", "Sulphates", "Chlorides", "Ammonium"], 
+
+    }
+  },
+  {
+   
+   "filter":{
+     
+   "field" : "location",
+   "oneOf": ["Tansanee", "Achara", "Decha", "Kohsoom", "Chai"]
+   }
+  }
+],
+              
+
+
+width: 600,
+height: 400,
+
+
+"selection": {
+    "industry": {
+      "type": "single",
+      "fields": ["location"], "bind": "legend",
+      "bind": {"input": "select", "options": [null, "Tansanee", "Achara", "Decha", "Kohsoom", "Chai"]},
+      "hover": {"type": "single", "on": "mouseover", "empty": "none"},
+
+
+    }
+
+
+  },
+
+
+
+
+
+  "mark": {
+   "type": "line",
+  "point": true,
+  },
+ "columns": 3,
+  
+
+  "encoding": {
+
+
+    "facet": {"field": "measure", "type": "nominal"},
+
+    "x": {
+      "field": "sample date",
+      "timeUnit": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"grid": true},
+
+
+    
+    },
+    "y": {
+      "field": "values",
+      "type": "quantitative",
+      "aggregate": "mean",
+      "title": "Value",
+      "axis": {"grid": true},
+
+    },
+
+
+
+
+    "color": {
+      "condition": {
+        "selection": "industry",
+        "field": "location", "type": "nominal",
+
+
+      },
+
+    
+
+      
+      "value": ""
+    },
+
+    "tooltip": [
+      {"field": "sample date", "type": "temporal", "timeUnit": "year"},
+      {"field": "location", "type": "nominal"},
+      {"field": "values", "type": "quantitative", "aggregate": "mean"}
+    ]
+    
+  
+             },
+      
+    
+        
+        };
+
+
+
+
+
+
+
+
+
+
+
+     vegaEmbed('#vis', vlSpec);
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Value of chemicals by year and location anomalies (w/selection)</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Value of Chemicals by year and location anomalies (w/selection)</h1>
+     <div id="vis"></div>
+
+     <h1> Describe trends and anomalies with respect to chemical contamination in the Boonsong Lekagul waterways </h1>
+
+
+     <h1> Finding 1 - Anomaly </h1>
+
+
+     <p> Despite the fact that the visualisations had a trend, I had discovered an anomaly that did not fit the general trend after careful analysis. When analysing the chemicals Nitrites and Atrazine, I found that they had a steady trend from 1998 to 2016 which means that they fit the general trend. On the other hand, I discovered that there was a small peak in the ammonium graph from the years 2013 to 2014 for some locations (figure 8). This does not fit the general trend because as mentioned before, all three chemicals do not rise or fall through the years. After implementing the ‘selection’ feature on my graphs, I had found out that these locations were Tansanee and Kohsoom. After the year 2014, the value of ammonium in Tansanee had begun to decrease and returned to normal. We can see there is a small spike for Tansanee that began in 2013 and then begins to fall in 2014 which basically shows the increase during that period. Kohsoom spike wasn’t as big as Tansanee’s but still showed a small spike in this period of time. The data is telling us that in comparison to other locations, Kohsoom and Tansanee recorded a higher value of ammonium and the visualisation shows this by showing a spike between 2013 and 2014. Similar to the previous trend finding, this data would be considered insightful because I considered multiple aspects of data when I discovered the data. Many advanced features were used to help me visualise this data. Much like with the previous graph, I used concatenation, faceting and filtering. But for this graph specifically, I used an advanced feature called selection. The Vega-lite website explains the function of the feature. It states, “They map user input into queries, which can subsequently be used to drive conditional encoding rules, filter data points, or determine scale domains” (Vega-lite, 2020). This feature enabled me to pick specific data values. In this case, the data values were the locations. This feature also enabled me to create a drop-down menu at the bottom of the page. Once the user clicks on this drop-down menu, they will be given the option to select the available locations. Once they choose a specific location to look at, the graph will only show that specific location and make the other locations disappear on the graph to make it easier for the user to analyse that one location.  </p>
+
+
+
+     <h1> Finding 2 - Anomaly </h1>
+
+     <p> After careful analysis, I had found that there were multiple outliers for the chemicals ‘Chlorides and ‘Manganese’ for certain locations. I used the ‘selection’ feature to look into specific locations for the chemicals and found outliers for both Tansanee and Somchair. When I went through the different locations for the chlorides graph, I had discovered two abnormal aspects about Tansanee. The first one being that there was clearly no data recorded before the year 2009 for Tansanee. This has also been the case for all other chemicals. For whatever cause, this location was not recorded at the same time as the other locations, which in essence poses a lot of questions and concerns about what the values could have been before that period of time. This isn’t good because the absence of these data values begins to cause a gap in the data. Furthermore, missing data could also lead to bias as mentioned in “Missing Data: the hidden problem” (SPSS, 2020). It states, “Missing data can also lead to misleading results by introducing bias” (SPSS, 2020). We can clearly see the finding from the visualisation because there are no lines seen before the year 2009 which indicates that no data was recorded before that time. The second point is that the value of chlorides is very high in the years 2009 and 2014 in comparison to the other years and other locations. The result of these outliers could be due to experimental error. We can clearly see the finding from the visualisation because the values from the years 2009 and 2014 are very different from the others. That is, the values are unusually far from the other values that are plotted on the graph. With respect to Tansanee in the chlorides graph, the data is telling us, as mentioned earlier, that there are some inconsistencies and gaps within the data values, and this can clearly be seen on the graph. This finding would be considered insightful because this data hasn’t been seen in any other graph along with the fact that multiple components were used to discover the finding.  </p>
+
+     <p> The same can be seen with the manganese graph which also shows an outlier. When looking into the different locations for manganese, I found that Somchair displayed an outlier in relation to the other locations. As evident, you can see there is a huge increase in 1999 and 2003 and the values are unusually far from one another. After the year 2003, you can see that the value begins to drop and from 2004 onwards, you can see that the values remain somewhat constant. In common with the chlorides graph, the outliers could be a result of human or experimental error. Concerning the manganese graph, the data is telling us that there was a huge increase in value for both 1999 and 2003 and that it should be the main area of focus on the graph as it stands out from the other values. Much like the previous graphs, I used several advanced features to help me visualise my data. I used concatenation, faceting and filtering.  </p>
+
+
+     <h1> Effectiveness of Visualisation </h1>
+
+     <p> As evident in this visualisation, I used a line chart to help me analyse the data. As mentioned before, a line chart is commonly used to display change over time as a series of data points connected by a straight line. This chosen chart type is the perfect fit for the trends and anomalies because line charts are designed to track changes over a long or short period of time. I used two different marks: zero-dimensional (0D) point mark and one-dimensional (1D) line mark. The reason I chose to use the line mark was because it is easier to track changes over time using a line rather than using areas and points. The 0D mark was used to help the user identify specific values on the graph. As seen above, you can see that my data visualisation falls under the identity channel. As evident, I used different colours to help the user distinguish between the different locations. Colour hues are considered to be one of the most effective channels for categorical data. In “Visualisation analysis and design” (Munzner, 2014), Munzner states, “The most effective channel for categorical data is spatial region, with colour hue as the next best one” (Munzner, 2014). Although colour hue is considered to be the second best, I decided to use the colour hue because I thought it would be easier for the user to distinguish between the locations. There is one additional feature that I implemented in my visualisation and that is tooltip. Tooltip allows the user to display the values just by simply hovering their mouse over the graph. </p>
+
+
+     <h1> References </h1>
+
+<p> ATSDR, (2012). Public Health Statement for Manganese. Available at: https://www.atsdr.cdc.gov/phs/phs.asp?id=100&tid=23. [Accessed 2 January 2020]. </p>
+<p> Boelee, (2019). Water and health: from environmental pressures to integrated responses. Available at: https://www.sciencedirect.com/science/article/pii/S0001706X18300883#:~:text=Pressures%20in%20the%20environment%20result,the%20State%20of%20human%20health.  [Accessed 4 January 2020].  </p>
+<p> EdrawMax, (2020). All you need to know about line graphs. Available at: https://www.edrawmax.com/line-graph/. [Accessed 3 January 2020]. </p>
+<p> Munzner, T., 2014. Visualization Analysis and Design. 1st ed. Boca Raton, FL: CRC Press.  </p>
+<p> SPSS, (2020). Missing data: the hidden problem. Available at: https://www.bauer.uh.edu/jhess/documents/2.pdf. [Accessed 2 January 2020].  </p>
+<p> The Wildlife Society, (2017). Impacts of Lead (Pb) on Wildlife. Available at: http://wildlife.org/wp-content/uploads/2014/05/Impacts-of-Lead-on-Wildlife.pdf. [Accessed 6 January 2020]. </p>
+<p> Vega-lite, (2020). Interactive Plots with Selections. Available at: https://vega.github.io/vega-lite/docs/selection.html. [Accessed 3 January 2020]. </p>
+
+
+     <script>
+        var vlSpec = {
+          data: {url: "readings.csv"},
+
+          "transform": [
+  {
+
+    "filter": {
+
+      "field": "measure",
+    "oneOf": ["Calcium", "Nitrites", "Atrazine", "Sulphates", "Chlorides", "Ammonium", "Manganese", "Nickel", "Lead"], 
+
+    }
+  },
+  {
+   
+   "filter":{
+     
+   "field" : "location",
+   "oneOf": ["Chai", "Kohsoom", "Boonsri", "Tansanee", "Achara", "Decha", "Kohsoom", "Sakda", "Somchair", "Busarakhan"]
+   }
+  }
+],
+              
+
+
+width: 600,
+height: 400,
+
+
+"selection": {
+    "industry": {
+      "type": "single",
+      "fields": ["location"], "bind": "legend",
+      "bind": {"input": "select", "options": [null, "Chai", "Kohsoom", "Boonsri", "Tansanee", "Achara", "Decha", "Kohsoom", "Sakda", "Somchair", "Busarakhan"]},
+      "hover": {"type": "single", "on": "mouseover", "empty": "none"},
+
+
+    }
+
+
+  },
+
+
+
+
+
+  "mark": {
+   "type": "line",
+  "point": true,
+  },
+ "columns": 3,
+  
+
+  "encoding": {
+
+
+    "facet": {"field": "measure", "type": "nominal"},
+
+    "x": {
+      "field": "sample date",
+      "timeUnit": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"grid": true},
+
+
+    
+    },
+    "y": {
+      "field": "values",
+      "type": "quantitative",
+      "aggregate": "mean",
+      "title": "Value",
+      "axis": {"grid": true},
+
+    },
+
+
+
+
+    "color": {
+      "condition": {
+        "selection": "industry",
+        "field": "location", "type": "nominal",
+
+
+      },
+
+    
+
+      
+      "value": ""
+    },
+
+    "tooltip": [
+      {"field": "sample date", "type": "temporal", "timeUnit": "year"},
+      {"field": "location", "type": "nominal"},
+      {"field": "values", "type": "quantitative", "aggregate": "mean"}
+    ]
+    
+  
+             },
+      
+    
+        
+        };
+
+
+
+
+
+
+
+
+
+
+
+     vegaEmbed('#vis', vlSpec);
+    </script>
+    </body>
+    </html>
+
+
+    
